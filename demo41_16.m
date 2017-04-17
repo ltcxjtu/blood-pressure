@@ -83,7 +83,7 @@ for p=1:length(filename)
 
 
     %% 遗传算法的计算
-    len=1;
+    len=20;
     disp('遗传算法');
     resu=zeros(6,len);g=zeros(1,len);c=zeros(1,len);
     g=zeros(1,len);
@@ -128,12 +128,15 @@ for p=1:length(filename)
         set(gca,'XDir','reverse')%对X方向反转;
         close all;
  %%     
-        dirpic='../picture/';
+        dirpic='../部分包络/picture/';
+        dirparams='../部分包络/params/';
         mkdir(dirpic);
+        mkdir(dirparams);
         for num=1:8
              saveas(figure(num),[dirpic,filename(p).name,'+',num2str(num),'.fig']);
              saveas(figure(num),[dirpic,filename(p).name,'+',num2str(num),'.tiff']);
         end
+        save([dirparams,filename(p).name(1:end-4),'.mat'],'params');
         
     end
 end
